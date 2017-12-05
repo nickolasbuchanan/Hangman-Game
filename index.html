@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hangman | New Coder Edition</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  <body>
+    <!--This container will hold all the content of the page-->
+    <div class="container">
+      <!--Jumbotron used to hold the Title of the page-->
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid">
+          <h1 class="display-1">HangMan</h1>
+          <h2 class="display-3">Cities to Visit</h2>
+          <h2 class="display-5">Hit any key to get started!!!</h2>
+
+        </div>
+      </div>
+
+      <!--Now i need the structure the layout of the game using smaller containers called cards. so everything needs to be contained in one row.-->
+      <div class="row">
+        <div class= "col">
+      <!--Need to make an area with blanks for letters of the word.-->
+          <div class="card">
+            <h3 class="card-header">Guess the Word:</h3>
+              <div class="card-body">
+                <h3 id=letter-blanks>_ _ _ _ _ _ _</h3>
+            </div>
+          </div>
+      <!--Need to mank an area with # of guesses remaining.-->
+          <div class="card">
+            <div class="card-body">
+              <strong>Remaining Guesses: </strong> <span id=guess-counter>10</span>
+            </div>
+          </div>
+      <!--Need to mank an area that holds the wrong guessed letters.-->
+          <div class="card">
+            <div class="card-body">
+              <strong>Wrong Letters: </strong> <span id=wrong-letters></span>
+            </div>
+          </div>
+      <!--Need to log number of wins-->
+          <div class="card">
+            <div class="card-body">
+              <strong>Wins: </strong> <span id=win-counter>0</span>
+            </div>
+          </div>
+      <!--Need to log number of losses -->
+          <div class="card">
+            <div class="card-body">
+              <strong>Losses: </strong> <span id=loss-counter>0</span>
+            </div>
+          </div>        
+        </div>
+
+      </div>
+    
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>
