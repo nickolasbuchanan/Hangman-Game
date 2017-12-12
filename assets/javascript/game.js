@@ -3,33 +3,26 @@
 
 //Need to start an array with all the word choices.
 var cityWords = ["paris", "london", "rome", "miami",
-"new york", "berlin"];
+"new york", "berlin", "atlanta", "washington"];
 //The word chosen needs to be broken down to letters.
+var pickedWord = "";
+
 var wordToLetter = "";
 //Those letters need to be turned into blanks.
 var letterToBlank = [];
 //Need a spot for the letters to go and unsloved blanks
-var = trialNError = [];
+var trialNError = [];
 //Need a spot for guesses
-var = pickedLetter = "";
+var pickedLetter = "";
 //Need a spot for worng guess
-var = wrongLetter = [];
+var wrongLetter = [];
 //Need counters for the game: win, loss, guesses left
 var guessNumber = 12;
 var winCounter = 0;
 var lossCounter = 0;
 //*******************************
 //Need to Start up game with hitting a key to get started
-startGame();
 
-	doument.onkeyup = function function_name(event) {
-		// Make letters being guessed lower case, add standard
-		pickedLetter = String.fromCharCode(event.keyCode).tolowercase();
-		//Need to check for a correct letter answer
-		checkLetters(letterGuessed);
-		//with a startgame there needs to be an end game 
-		endGame()''
-	};
 
 //funtion to run the game
 function startGame() {
@@ -47,16 +40,17 @@ function startGame() {
 
 	wrongLetter = [];
 
-	for (var i = 0; i < letterToBlank.length; i++) {
+	for (var i = 0; i < letterToBlank; i++) {
 		trialNError.push("_");
 	}
+	
 	console.log(trialNError);
 
-	document,getElementById("guess-counter").innerHTML = letterToBlank;
+	document.getElementById("guess-counter").innerHTML = letterToBlank;
 
-	document,getElementById("letter-blanks").innerHTML = trialNError.join(" ");
+	document.getElementById("letter-blanks").innerHTML = trialNError.join(" ");
 
-	document,getElementById("wrong-letters").innerHTML = wrongLetter.join(" ");
+	document.getElementById("wrong-letters").innerHTML = wrongLetter.join(" ");
 
 }
 
@@ -65,7 +59,7 @@ function letterChecker(letter) {
 
 	var letterFound = false;
 	
-	for (var i = 0; i < letterToBlank.length; i++) {
+	for (var i = 0; i < letterToBlank; i++) {
 		
 		if (pickedWord[i] === letter) { 
 			
@@ -75,12 +69,14 @@ function letterChecker(letter) {
 
 	 if (letterFound) {
 
-	 		for (var j = 0; letterToBlank.length; j++) {
-	  if pickedWord[j] === letter {
-	  	letterToBlank[j] = letter;
-	 		}
+	 		for (var j = 0; j < letterToBlank; j++) {
+	  
+	  		if (pickedWord[j] === letter) {
+	  	
+	  			trialNError[j] = letter;
+	 			}
 	  }
-	 }
+	 
 		console.log(letterToBlank);
 	}	
 
@@ -89,8 +85,52 @@ function letterChecker(letter) {
 
 		guessNumber--;
 	}
+}
 
 //Need to setup what happens when a round is completed
+function roundEnd(){
+	//need to know the round information; wins, loss, guesses to start
+	console.log("WinCounter: " + winCounter + " | LossCount: " + lossCounter + " | GuessNumber: " + guessNumber);
+
+
+	document.getElementById("guess-counter").innerHTML = guessNumber;
+
+	document.getElementById("letter-blanks").innerHTML = trialNError.join (" ");
+
+	document.getElementById("wrong-letters").innerHTML = wrongLetter.join(" ");
+
+	if (wordToLetter.toString() === trialNError.toString()) {
+
+		winCounter++;
+
+		alert("You Win!!!");
+
+		document.getElementById("win-counter").innerHTML = winCounter;
+
+		startGame();
+
+	}
+
+	else if (guessNumber === 0) {
+
+		lossCounter++;
+
+		alert("You lost, better get travling!!!!");
+
+		documnet.getElementById("loss-counter").innerHTML = lossCounter;
+	}
 }
+
+startGame();
+
+	document.onkeyup = function(event) {
+		// Make letters being guessed lower case, add standard
+		pickedLetter = String.fromCharCode(event.keyCode).toLowerCase();
+		//Need to check for a correct letter answer
+		letterChecker(pickedLetter);
+		//with a startgame there needs to be an end game 
+		roundEnd();
+	};
+
 
 
